@@ -21,6 +21,9 @@ ebucket_wrapper *new_ebucket_wrapper(ell_node *node, const uint32_t *groups, int
 ebucket_wrapper *new_ebucket_wrapper_key(ell_node *node, const uint32_t *groups, int group_num, const char *key);
 void delete_ebucket_wrapper(ebucket_wrapper *ew);
 
+void *bucket_meta_alloc();
+void bucket_meta_free(void *ptr);
+
 int ebucket_get_bucket(ebucket_wrapper *bp, size_t size, bucket_meta *meta);
 int ebucket_find_bucket(ebucket_wrapper *bp, const char *name, bucket_meta *meta);
 

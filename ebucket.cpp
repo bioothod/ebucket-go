@@ -96,6 +96,24 @@ int ebucket_find_bucket(ebucket_wrapper *bp, const char *name, bucket_meta *meta
 	return 0;
 }
 
+void *bucket_meta_alloc()
+{
+	try {
+		bucket_meta *ret = new bucket_meta;
+		return (void *)ret;
+	} catch (...) {
+		return NULL;
+	}
+}
+
+void bucket_meta_free(void *ptr)
+{
+	if (ptr) {
+		bucket_meta *ret = (bucket_meta *)ptr;
+		delete ret;
+	}
+}
+
 const char *bucket_meta_name(bucket_meta *meta)
 {
 	return meta->name.c_str();
